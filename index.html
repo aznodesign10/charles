@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles | Premium Video Editor & Motion Designer Portfolio</title>
+    <meta name="description"
+        content="Professional video editor and motion designer portfolio. Crafting visual stories that captivate and convert. YouTube, Commercials, Shorts, and Documentaries.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Interactive Background Canvas Particles -->
+    <canvas id="bg-particles"></canvas>
+
+    <!-- Background Glows -->
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-cyan"></div>
+    <div class="moving-glow"></div>
+    <div class="moving-glow-2"></div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-symbol">▶</span> CHARLES<span class="dot">.</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#toolkit" class="nav-link">Toolkit</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-nav">Let's Talk</a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu">
+        <a href="#work" class="mobile-link">Work</a>
+        <a href="#process" class="mobile-link">Process</a>
+        <a href="#toolkit" class="mobile-link">Toolkit</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 2rem; width: 100%; text-align: center;">Let's
+            Talk</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg-overlay">
+            <img src="assets/images/studio_bg.jpg" alt="Studio Background" class="hero-image-bg">
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="badge">Visual Storyteller & Video Editor</span>
+                <h1 class="hero-title">Hi, I am <br><span class="gradient-text">Charles !</span></h1>
+                <p class="hero-subtitle">I edit high-impact YouTube videos, commercials, and short-form content that
+                    captivates audiences and scales brands. Let's turn your raw footage into cinematic masterpieces.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" id="btn-showreel">
+                        <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                        </svg>
+                        Watch Showreel
+                    </button>
+                    <a href="#work" class="btn btn-secondary">Explore Work</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50M+</span>
+                        <span class="stat-label">Total Views Generated</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-area">
+                <div class="hero-image-frame">
+                    <img src="portraite.jpg" alt="Charles - Video Editor"
+                        class="hero-portrait" onerror="this.src='charles.jpg'">
+                    <div class="floating-badge badge-top-left">
+                        <span class="badge-icon">🎬</span> Ready to Edit
+                    </div>
+                    <div class="floating-badge badge-bottom-right">
+                        <span class="badge-icon">⭐</span> Top Rated
+                    </div>
+                    <div class="hero-image-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="lightbox" id="showreel-lightbox">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-container">
+            <button class="lightbox-close" id="showreel-close" aria-label="Close Showreel">×</button>
+            <div class="video-wrapper">
+                <iframe id="showreel-iframe" class="hidden" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <video id="showreel-video" class="hidden" controls width="100%" height="100%"></video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <section id="work" class="portfolio-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Featured Projects</span>
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">Browse through my latest edits. Hover to reveal project stats and click to
+                    watch.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="documentary">Cinematic & Docs</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+
+                <!-- Project 1: Food Agricultural NGO -->
+                <div class="portfolio-card" data-category="documentary"
+                    data-video-src="https://drive.google.com/file/d/1v3uS60PzfBBw6R_PwXb3uVQ4m5VsCgQE/preview"
+                    data-drive-link="https://drive.google.com/file/d/1v3uS60PzfBBw6R_PwXb3uVQ4m5VsCgQE/view?usp=drive_link"
+                    data-title="Food Agricultural NGO" data-client="Agricultural NGO"
+                    data-role="Lead Editor & Documentarian" data-software="Premiere Pro, DaVinci Resolve"
+                    data-description="Purpose-driven documentary highlighting sustainable farming practices, regional farmer interviews, and natural cinematic color matching under variable lighting conditions.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1v3uS60PzfBBw6R_PwXb3uVQ4m5VsCgQE=w800" alt="Food Agricultural NGO" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_nature.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Cinematic & Docs</span>
+                                <h3 class="card-title">Food Agricultural NGO</h3>
+                                <div class="card-stats-badges">
+                                    <span>🌱 Sustainability</span>
+                                    <span>🎨 Natural Grade</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: LPEC Aurudu Kumara Kumariya Trailer -->
+                <div class="portfolio-card" data-category="documentary"
+                    data-video-src="https://drive.google.com/file/d/1fXZjZaxjdvKpz1yD9dkGVKhD6p6KtRLJ/preview"
+                    data-drive-link="https://drive.google.com/file/d/1fXZjZaxjdvKpz1yD9dkGVKhD6p6KtRLJ/view?usp=drive_link"
+                    data-title="LPEC Aurudu Kumara Kumariya Trailer" data-client="LPEC"
+                    data-role="Lead Editor & Colorist" data-software="Premiere Pro, DaVinci Resolve"
+                    data-description="Cultural festival trailer showcasing traditional Sri Lankan celebrations, customized color grading, cultural heritage highlights, and dynamic sequence pacing.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1fXZjZaxjdvKpz1yD9dkGVKhD6p6KtRLJ=w800" alt="LPEC Aurudu Kumara Kumariya Trailer" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_japan.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Cinematic & Docs</span>
+                                <h3 class="card-title">Aurudu Kumara Kumariya</h3>
+                                <div class="card-stats-badges">
+                                    <span>📜 Cultural Festival</span>
+                                    <span>🎨 Color Grade</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Amazing Race Re-Edit -->
+                <div class="portfolio-card" data-category="commercial"
+                    data-video-src="https://drive.google.com/file/d/1aVBhsLvcbiEppV_jJR-2ErgCM9uppwmI/preview"
+                    data-drive-link="https://drive.google.com/file/d/1aVBhsLvcbiEppV_jJR-2ErgCM9uppwmI/view?usp=drive_link"
+                    data-title="Amazing Race Re-Edit" data-client="Action Showcase / Fan Edit"
+                    data-role="Editor & VFX Sync" data-software="Premiere Pro, After Effects"
+                    data-description="Fast-paced action re-edit of the Amazing Race, focusing on multi-cam synchronization, narrative intensity, sound design accents, and audio alignment.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1aVBhsLvcbiEppV_jJR-2ErgCM9uppwmI=w800" alt="Amazing Race Re-Edit" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_fitness.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Commercial</span>
+                                <h3 class="card-title">Amazing Race Re-Edit</h3>
+                                <div class="card-stats-badges">
+                                    <span>🏃 Action Cut</span>
+                                    <span>🎬 Multi-Cam Sync</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: New Commercial HD -->
+                <div class="portfolio-card" data-category="commercial"
+                    data-video-src="https://drive.google.com/file/d/1_dBydGfIxwvGnR6JPsS1o50_VpseIX6I/preview"
+                    data-drive-link="https://drive.google.com/file/d/1_dBydGfIxwvGnR6JPsS1o50_VpseIX6I/view?usp=drive_link"
+                    data-title="New Commercial HD" data-client="Commercial Brand"
+                    data-role="Lead Commercial Editor" data-software="Premiere Pro, After Effects"
+                    data-description="Modern high-definition commercial advertisement with dynamic typography, crisp product highlights, smooth rhythm transitions, and engaging pacing.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1_dBydGfIxwvGnR6JPsS1o50_VpseIX6I=w800" alt="New Commercial HD" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_watch.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Commercial</span>
+                                <h3 class="card-title">New Commercial HD</h3>
+                                <div class="card-stats-badges">
+                                    <span>📣 Brand Promo</span>
+                                    <span>⚡ Motion Graphics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Domestic Cricket Theme Song -->
+                <div class="portfolio-card" data-category="documentary"
+                    data-video-src="https://drive.google.com/file/d/1H_9H0rAcep0qTs2n_MT670kLGV2L8Pkh/preview"
+                    data-drive-link="https://drive.google.com/file/d/1H_9H0rAcep0qTs2n_MT670kLGV2L8Pkh/view?usp=drive_link"
+                    data-title="Domestic Cricket Theme Song" data-client="Sri Lanka Cricket"
+                    data-role="Music Video & Story Editor" data-software="Premiere Pro, DaVinci Resolve"
+                    data-description="High-energy cricket theme song music video featuring rhythmic action cuts, crowd atmosphere integration, stadium visual elements, and beat synchronization.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1H_9H0rAcep0qTs2n_MT670kLGV2L8Pkh=w800" alt="Domestic Cricket Theme Song" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_fitness.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Cinematic & Docs</span>
+                                <h3 class="card-title">Cricket Theme Song</h3>
+                                <div class="card-stats-badges">
+                                    <span>🏏 Sports Theme</span>
+                                    <span>🎵 Beat Sync</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: WIN AI Promo -->
+                <div class="portfolio-card" data-category="commercial"
+                    data-video-src="https://drive.google.com/file/d/1mAT9fhmdIlo_14xuEzPioogDN6lh_q78/preview"
+                    data-drive-link="https://drive.google.com/file/d/1mAT9fhmdIlo_14xuEzPioogDN6lh_q78/view?usp=drive_link"
+                    data-title="WIN AI Promo" data-client="WIN AI"
+                    data-role="Lead Motion Designer & Editor" data-software="After Effects, Premiere Pro"
+                    data-description="Futuristic tech commercial integrating AI-generated visual animations, holographic HUD digital graphics, and high-impact VFX transitions.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1mAT9fhmdIlo_14xuEzPioogDN6lh_q78=w800" alt="WIN AI Promo" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_finance.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Commercial</span>
+                                <h3 class="card-title">WIN AI Promo</h3>
+                                <div class="card-stats-badges">
+                                    <span>🤖 Future Tech</span>
+                                    <span>💥 VFX Cuts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Non-Stop Cricket Promo -->
+                <div class="portfolio-card" data-category="commercial"
+                    data-video-src="https://drive.google.com/file/d/1Hvgn7gyBXY2xwlzLJk3HKe5EDeqEOvaI/preview"
+                    data-drive-link="https://drive.google.com/file/d/1Hvgn7gyBXY2xwlzLJk3HKe5EDeqEOvaI/view?usp=drive_link"
+                    data-title="Non-Stop Cricket Promo" data-client="Sports Broadcast Network"
+                    data-role="Sports Promo Editor" data-software="Premiere Pro, After Effects"
+                    data-description="Intense sports promo video with dynamic speed ramping, quick pacing cuts, cinematic slow-motion highlights, and punchy stadium sound design.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1Hvgn7gyBXY2xwlzLJk3HKe5EDeqEOvaI=w800" alt="Non-Stop Cricket Promo" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_fitness.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Commercial</span>
+                                <h3 class="card-title">Non-Stop Cricket Promo</h3>
+                                <div class="card-stats-badges">
+                                    <span>⚡ Speed Ramps</span>
+                                    <span>🎙️ Sound Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: SL vs NZ Highlights -->
+                <div class="portfolio-card" data-category="documentary"
+                    data-video-src="https://drive.google.com/file/d/1H2ludbaqGJCRvdC_4Rmd135qPaDyema7/preview"
+                    data-drive-link="https://drive.google.com/file/d/1H2ludbaqGJCRvdC_4Rmd135qPaDyema7/view?usp=drive_link"
+                    data-title="SL vs NZ Highlights" data-client="Sports Broadcast"
+                    data-role="Sports Highlights Editor" data-software="Premiere Pro, DaVinci Resolve"
+                    data-description="Action-packed cricket broadcast package showcasing key match wickets, boundaries, and slow-motion replay insertions between Sri Lanka and New Zealand.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1H2ludbaqGJCRvdC_4Rmd135qPaDyema7=w800" alt="SL vs NZ Highlights" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_fitness.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Cinematic & Docs</span>
+                                <h3 class="card-title">SL vs NZ Highlights</h3>
+                                <div class="card-stats-badges">
+                                    <span>🏏 Match Cuts</span>
+                                    <span>🔍 Slow-Mo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: My Showreel 2023 -->
+                <div class="portfolio-card" data-category="documentary"
+                    data-video-src="https://drive.google.com/file/d/1F_s5536mC5JCyrL8-i9U1rTeAiITSde1/preview"
+                    data-drive-link="https://drive.google.com/file/d/1F_s5536mC5JCyrL8-i9U1rTeAiITSde1/view?usp=drive_link"
+                    data-title="My Showreel 2023" data-client="Creator Portfolio Showcase"
+                    data-role="Video Editor & Motion Designer" data-software="Premiere Pro, After Effects, DaVinci Resolve"
+                    data-description="High-impact video editing showreel compiling dynamic pacing, visual effects montage, advanced typography, and seamless cinematic transitions.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1F_s5536mC5JCyrL8-i9U1rTeAiITSde1=w800" alt="My Showreel 2023" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_watch.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Cinematic & Docs</span>
+                                <h3 class="card-title">My Showreel 2023</h3>
+                                <div class="card-stats-badges">
+                                    <span>🎬 Showreel Montage</span>
+                                    <span>⚡ VFX & Motion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10: SL vs NZ Cricket Edit -->
+                <div class="portfolio-card" data-category="commercial"
+                    data-video-src="https://drive.google.com/file/d/1wtxxKjz2ktQdytGofObhY5PbGVUmyGtf/preview"
+                    data-drive-link="https://drive.google.com/file/d/1wtxxKjz2ktQdytGofObhY5PbGVUmyGtf/view?usp=drive_link"
+                    data-title="SL vs NZ Cricket Edit" data-client="Sports Highlights Broadcast"
+                    data-role="Lead Sports Action Editor" data-software="Premiere Pro, After Effects"
+                    data-description="Adrenaline-charged sports edit capturing crucial wickets, aggressive batting highlights, stadium energy atmosphere, and precision audio sound design.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/1wtxxKjz2ktQdytGofObhY5PbGVUmyGtf=w800" alt="SL vs NZ Cricket Edit" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_fitness.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Commercial</span>
+                                <h3 class="card-title">SL vs NZ Cricket Edit</h3>
+                                <div class="card-stats-badges">
+                                    <span>🏏 Match Highlights</span>
+                                    <span>🎙️ Stadium Audio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11: WIN AI Feature Commercial -->
+                <div class="portfolio-card" data-category="commercial"
+                    data-video-src="https://drive.google.com/file/d/10tj-L6982CPGbXb5hslklzqVj-B-AoVm/preview"
+                    data-drive-link="https://drive.google.com/file/d/10tj-L6982CPGbXb5hslklzqVj-B-AoVm/view?usp=drive_link"
+                    data-title="WIN AI Feature Commercial" data-client="WIN AI Tech"
+                    data-role="Commercial Motion Editor" data-software="After Effects, Premiere Pro"
+                    data-description="Modern tech commercial showcasing AI-driven innovations, sleek futuristic animations, 3D title designs, and energetic sound branding.">
+                    <div class="card-thumbnail">
+                        <img src="https://lh3.googleusercontent.com/d/10tj-L6982CPGbXb5hslklzqVj-B-AoVm=w800" alt="WIN AI Feature Commercial" class="thumbnail-img" loading="lazy" onerror="this.onerror=null; this.src='assets/project_finance.svg'">
+                        <div class="card-overlay">
+                            <span class="card-play-icon">▶</span>
+                            <div class="card-info">
+                                <span class="card-category-tag">Commercial</span>
+                                <h3 class="card-title">WIN AI Feature Commercial</h3>
+                                <div class="card-stats-badges">
+                                    <span>🤖 AI Commercial</span>
+                                    <span>🚀 Modern VFX</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study / Project Detail Modal (100% Google Drive Player) -->
+    <div class="modal" id="project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close Modal">×</button>
+            <div class="modal-video-wrapper">
+                <iframe id="modal-iframe" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta-grid">
+                    <div class="meta-item">
+                        <span class="meta-label">Client</span>
+                        <span class="meta-value" id="modal-client">-</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Role</span>
+                        <span class="meta-value" id="modal-role">-</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Software</span>
+                        <span class="meta-value" id="modal-software">-</span>
+                    </div>
+                </div>
+                <h3 class="modal-project-title" id="modal-title">-</h3>
+                <p class="modal-description" id="modal-description">-</p>
+                <div class="modal-cta-wrap" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-top: 1.5rem;">
+                    <a href="#" id="modal-drive-btn" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                        Open Video in Google Drive
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workflow Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How I Work</span>
+                <h2 class="section-title">The Editing Workflow</h2>
+                <p class="section-subtitle">A streamlined, collaborative editing process built to take the headache out
+                    of post-production and ensure premium quality.</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-card">
+                    <div class="process-num">01</div>
+                    <h3 class="process-title">Footage Ingest & Sort</h3>
+                    <p class="process-desc">Send me your raw files (via Drive/Frame.io). I organize bins, sync multi-cam
+                        tracks, align external audio, and log the best takes.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">02</div>
+                    <h3 class="process-title">The Storyboard / Rough Cut</h3>
+                    <p class="process-desc">I assemble the narrative, pacing, and basic flow. This cut ensures the story
+                        is airtight before adding complex visuals.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">03</div>
+                    <h3 class="process-title">VFX & Sound Design</h3>
+                    <p class="process-desc">I add custom motion graphics, sound effects (SFX), transitions, audio
+                        enhancement, and ambient noise to bring the scene alive.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">04</div>
+                    <h3 class="process-title">Color Grading</h3>
+                    <p class="process-desc">Using professional color tools, I correct exposure, match cameras, and apply
+                        a creative grade matching the emotional tone.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">05</div>
+                    <h3 class="process-title">Revision & Delivery</h3>
+                    <p class="process-desc">We review the video on Frame.io. After applying your feedback, I deliver
+                        high-quality optimized exports for your target platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toolkit / Tech Stack -->
+    <section id="toolkit" class="toolkit-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Weaponry</span>
+                <h2 class="section-title">The Creative Suite</h2>
+                <p class="section-subtitle">I leverage industry-standard software to deliver cutting-edge visual
+                    effects, audio fidelity, and seamless edits.</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon tool-premiere">Pr</div>
+                    <h3 class="tool-name">Premiere Pro</h3>
+                    <p class="tool-tag">NLE Editing & Assembly</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon tool-aftereffects">Ae</div>
+                    <h3 class="tool-name">After Effects</h3>
+                    <p class="tool-tag">VFX & Motion Design</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon tool-davinci">Dr</div>
+                    <h3 class="tool-name">DaVinci Resolve</h3>
+                    <p class="tool-tag">Color Grading & Finish</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon tool-photoshop">Ps</div>
+                    <h3 class="tool-name">Photoshop</h3>
+                    <p class="tool-tag">Thumbnail & Graphic asset</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon tool-gemini"><img src="assets/gemini.png" alt="Google Gemini"></div>
+                    <h3 class="tool-name">Google Gemini</h3>
+                    <p class="tool-tag">AI Scripting & Ideas</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon tool-nanobanana"><img src="assets/nanobanana.png" alt="Nano Banana"></div>
+                    <h3 class="tool-name">Nano Banana</h3>
+                    <p class="tool-tag">Media Encoding & Sort</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon tool-flow"><img src="assets/flow.png" alt="Flow"></div>
+                    <h3 class="tool-name">Flow</h3>
+                    <p class="tool-tag">AE Keyframe Easing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-section">
+        <div class="container contact-container">
+            <div class="contact-info-panel">
+                <span class="section-tag">Get in Touch</span>
+                <h2 class="section-title">Let's Edit Something <br><span class="gradient-text">Legendary.</span></h2>
+                <p class="contact-desc">Ready to take your content to the next level? Fill out the form or drop me a
+                    message directly. I usually respond within 12 hours.</p>
+
+                <div class="contact-list">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">✉</div>
+                        <div class="contact-info-content">
+                            <span class="info-label">Direct Email</span>
+                            <a href="mailto:djcharles007@gmail.com" class="info-link">djcharles007@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">💬</div>
+                        <div class="contact-info-content">
+                            <span class="info-label">Telegram / Discord</span>
+                            <span class="info-link">@charles_cuts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links-title">Follow My Work</div>
+                <div class="social-links-grid">
+                    <a href="https://youtube.com" class="social-icon-btn" aria-label="YouTube">YT</a>
+                    <a href="https://twitter.com" class="social-icon-btn" aria-label="Twitter">TW</a>
+                    <a href="https://instagram.com" class="social-icon-btn" aria-label="Instagram">IG</a>
+                    <a href="https://behance.net" class="social-icon-btn" aria-label="Behance">BE</a>
+                </div>
+            </div>
+
+            <!-- Contact Form Card -->
+            <div class="contact-form-card">
+                <form id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="Devin Graham" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="devin@channel.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="project-type" class="form-label">Project Type</label>
+                            <select id="project-type" class="form-input">
+                                <option value="youtube">YouTube Video</option>
+                                <option value="commercial">Commercial / Promo</option>
+                                <option value="shorts">Short Form (Reels/TikTok)</option>
+                                <option value="documentary">Cinematic / Documentary</option>
+                                <option value="other">Other / Custom</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="message" class="form-label">Project Details & Footage link</label>
+                            <textarea id="message" class="form-input" rows="5"
+                                placeholder="Tell me about your video, raw footage length, visual style, and timeline requirements..."
+                                required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit-form" id="btn-submit">
+                        Send Project Brief
+                    </button>
+                </form>
+
+                <!-- Success Message Display -->
+                <div class="form-success-overlay" id="form-success">
+                    <div class="success-content">
+                        <div class="success-icon">✓</div>
+                        <h3 class="success-title">Project Brief Ready!</h3>
+                        <p class="success-desc">Opening your email client to send the project details directly to <strong>djcharles007@gmail.com</strong>.</p>
+                        <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-top: 1.2rem;">
+                            <a href="mailto:djcharles007@gmail.com" id="manual-mail-btn" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+                                ✉ Send via Email App
+                            </a>
+                            <button class="btn btn-secondary btn-sm" id="btn-success-close">Close / Reset Form</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Mega Footer -->
+    <footer class="main-footer">
+        <div class="footer-top-glow"></div>
+        <div class="container footer-container">
+            <div class="footer-grid">
+                
+                <!-- Col 1: Brand & Status -->
+                <div class="footer-col footer-brand-col">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-symbol">▶</span> CHARLES<span class="dot">.</span>
+                    </a>
+                    <p class="footer-bio">
+                        Bringing visionary ideas to life through thoughtful visual storytelling, commercial video editing, motion graphics, and digital post-production.
+                    </p>
+                    <div class="footer-status-pill">
+                        <span class="status-indicator"></span>
+                        <span class="status-text">Available for global freelance & contracts</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link"><span class="link-arrow">→</span> Home</a></li>
+                        <li><a href="#toolkit" class="footer-link"><span class="link-arrow">→</span> Tools & Stack</a></li>
+                        <li><a href="#work" class="footer-link"><span class="link-arrow">→</span> Showcase Works</a></li>
+                        <li><a href="#process" class="footer-link"><span class="link-arrow">→</span> Workflow Process</a></li>
+                        <li><a href="#contact" class="footer-link"><span class="link-arrow">→</span> Contact</a></li>
+                        <li><a href="mailto:djcharles007@gmail.com?subject=Project%20Inquiry%20from%20Portfolio" class="footer-link footer-link-highlight"><span class="link-arrow">↗</span> Request Rate Card</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Creative Services -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Creative Services</h3>
+                    <ul class="footer-services">
+                        <li><span class="service-icon">✦</span> Commercial Video Editing</li>
+                        <li><span class="service-icon">✦</span> YouTube & Social Content</li>
+                        <li><span class="service-icon">✦</span> Motion Graphics & VFX</li>
+                        <li><span class="service-icon">✦</span> Color Grading & Finish</li>
+                        <li><span class="service-icon">✦</span> Audio & Sound Design</li>
+                        <li><span class="service-icon">✦</span> AI Concept Video Production</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Get in Touch -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Get in Touch</h3>
+                    <p class="footer-contact-desc">
+                        Ready to elevate your brand's digital presence? Let's connect today.
+                    </p>
+                    <a href="mailto:djcharles007@gmail.com" class="footer-email-box">
+                        <div class="email-box-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="email-box-text">
+                            <span class="email-box-label">OFFICIAL EMAIL</span>
+                            <span class="email-box-address">djcharles007@gmail.com</span>
+                        </div>
+                    </a>
+                    <div class="footer-location">
+                        <span class="location-pin">📍</span>
+                        <span>Sri Lanka • Worldwide Remote</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026 <strong>Charles</strong>. All rights reserved.
+                </div>
+                <div class="footer-bottom-badge">
+                    Built for visual excellence
+                </div>
+                <button class="footer-back-top" id="btn-back-to-top" aria-label="Back to Top">
+                    <span>Back to Top</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 15l-6-6-6 6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script File -->
+    <script src="index.js"></script>
+</body>
+
+</html>

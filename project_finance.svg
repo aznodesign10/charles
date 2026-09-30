@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020024" />
+      <stop offset="50%" stop-color="#090979" />
+      <stop offset="100%" stop-color="#00D4FF" />
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0.4" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" />
+  <!-- Grid Lines -->
+  <g stroke="#ffffff" stroke-width="0.5" opacity="0.08">
+    <line x1="50" y1="0" x2="50" y2="450" />
+    <line x1="150" y1="0" x2="150" y2="450" />
+    <line x1="250" y1="0" x2="250" y2="450" />
+    <line x1="350" y1="0" x2="350" y2="450" />
+    <line x1="450" y1="0" x2="450" y2="450" />
+    <line x1="550" y1="0" x2="550" y2="450" />
+    <line x1="650" y1="0" x2="650" y2="450" />
+    <line x1="750" y1="0" x2="750" y2="450" />
+    <line x1="0" y1="50" x2="800" y2="50" />
+    <line x1="0" y1="150" x2="800" y2="150" />
+    <line x1="0" y1="250" x2="800" y2="250" />
+    <line x1="0" y1="350" x2="800" y2="350" />
+  </g>
+  <!-- Chart Line Fill -->
+  <path d="M 50,380 L 150,330 L 250,340 L 350,220 L 450,250 L 550,150 L 650,110 L 750,80 L 750,380 Z" fill="url(#chartGrad)" />
+  <!-- Glowing Chart Line -->
+  <path d="M 50,380 L 150,330 L 250,340 L 350,220 L 450,250 L 550,150 L 650,110 L 750,80" fill="none" stroke="#10B981" stroke-width="4" filter="url(#glow)" />
+  <!-- Currency symbols floating -->
+  <text x="120" y="280" fill="white" font-family="'Outfit', sans-serif" font-size="36" font-weight="700" opacity="0.15" transform="rotate(-15 120 280)">$</text>
+  <text x="500" y="200" fill="white" font-family="'Outfit', sans-serif" font-size="42" font-weight="700" opacity="0.1" transform="rotate(20 500 200)">%</text>
+  <text x="320" y="140" fill="white" font-family="'Outfit', sans-serif" font-size="28" font-weight="700" opacity="0.15" transform="rotate(-5 320 140)">$</text>
+  <text x="680" y="160" fill="#10B981" font-family="'Outfit', sans-serif" font-size="22" font-weight="700" opacity="0.6">+345%</text>
+  <!-- Chart Points -->
+  <circle cx="150" cy="330" r="5" fill="white" stroke="#10B981" stroke-width="2" />
+  <circle cx="350" cy="220" r="5" fill="white" stroke="#10B981" stroke-width="2" />
+  <circle cx="550" cy="150" r="5" fill="white" stroke="#10B981" stroke-width="2" />
+  <circle cx="750" cy="80" r="6" fill="white" stroke="#10B981" stroke-width="3" filter="url(#glow)" />
+  <!-- Text Elements -->
+  <text x="60" y="390" fill="#10B981" font-family="'Outfit', sans-serif" font-weight="700" font-size="28" letter-spacing="4">FINANCE CHALLENGE</text>
+  <text x="60" y="415" fill="#9CA3AF" font-family="'Inter', sans-serif" font-weight="400" font-size="16">RETENTION ASSEMBLY &amp; ANIMATION GRAPHICS</text>
+  <text x="710" y="410" fill="white" font-family="'Outfit', sans-serif" font-weight="600" font-size="18">12:30</text>
+</svg>

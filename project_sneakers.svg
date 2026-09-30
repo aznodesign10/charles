@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="60%" stop-color="#311042" />
+      <stop offset="100%" stop-color="#6B21A8" />
+    </linearGradient>
+    <linearGradient id="laceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" />
+  <!-- Abstract Splashes & Circles -->
+  <circle cx="280" cy="180" r="120" fill="none" stroke="#EC4899" stroke-opacity="0.15" stroke-width="8" />
+  <circle cx="480" cy="220" r="160" fill="none" stroke="#A855F7" stroke-opacity="0.1" stroke-width="4" />
+  <path d="M 150,300 C 250,220 300,320 400,240 C 500,160 620,290 750,210" fill="none" stroke="url(#laceGrad)" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="10 5" />
+  <!-- Sneaker Silhouette (Stylized) -->
+  <g transform="translate(240, 100) scale(1.4)" fill="#030712">
+    <!-- Sole -->
+    <path d="M 20,135 C 50,135 100,135 130,130 C 160,125 180,105 210,105 C 220,105 230,110 235,115 L 230,128 C 210,128 190,135 150,138 C 100,140 40,142 20,142 Z" fill="#F3F4F6" />
+    <!-- Shoe Upper Body -->
+    <path d="M 30,130 C 25,120 25,95 40,85 C 50,75 80,68 110,40 C 120,30 135,28 142,35 C 145,32 150,38 150,42 L 140,65 C 135,75 140,85 155,95 C 170,105 188,103 210,105 C 180,105 160,125 130,130 C 100,135 50,135 30,130 Z" />
+    <!-- Laces Details (glowing neon) -->
+    <path d="M 95,65 L 115,50 M 105,75 L 125,60 M 115,85 L 135,70" fill="none" stroke="url(#laceGrad)" stroke-width="3" stroke-linecap="round" />
+    <!-- Back Collar Detail -->
+    <path d="M 32,88 C 36,92 40,90 42,85" fill="none" stroke="#EC4899" stroke-width="2" />
+  </g>
+  <!-- Sound FX Visualizer Graphic overlay -->
+  <g fill="#A855F7" opacity="0.3" transform="translate(620, 100)">
+    <rect x="0" y="30" width="4" height="20" />
+    <rect x="8" y="15" width="4" height="50" />
+    <rect x="16" y="5" width="4" height="70" />
+    <rect x="24" y="25" width="4" height="30" />
+    <rect x="32" y="10" width="4" height="60" />
+    <rect x="40" y="35" width="4" height="10" />
+  </g>
+  <!-- Text Elements -->
+  <text x="60" y="390" fill="#A855F7" font-family="'Outfit', sans-serif" font-weight="700" font-size="28" letter-spacing="4">VELO SNEAKERS</text>
+  <text x="60" y="415" fill="#9CA3AF" font-family="'Inter', sans-serif" font-weight="400" font-size="16">CINEMATIC URBAN CUT &amp; RHYTHMIC SFX</text>
+  <text x="710" y="410" fill="white" font-family="'Outfit', sans-serif" font-weight="600" font-size="18">00:45</text>
+</svg>
